@@ -37,7 +37,7 @@ jobs:
       -
         name: Test
         run: |
-          docker run --rm ${{ env.DOCKER_TAG}}
+          docker scan rootok/go-docker:latest
       -
         name: Build and push
         uses: docker/build-push-action@v3
