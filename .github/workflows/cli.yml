@@ -5,6 +5,9 @@ on:
     branches:
       - 'main'
 
+env:
+  DOCKER_TAG: rootok/go-docker:lates
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -25,9 +28,21 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Build and export to Docker
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          load: true
+          tags: ${{ env.DOCKER_TAG}}
+      -
+        name: Test
+        run: |
+          docker run --rm ${{ env.DOCKER_TAG}}
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: user/app:latest
+          tags:  env.DOCKER_TAG
