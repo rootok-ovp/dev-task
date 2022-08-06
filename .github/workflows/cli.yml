@@ -35,10 +35,10 @@ jobs:
           load: true
           tags: ${{ env.DOCKER_TAG}}
       -
-        name: Test
-        run: |
-          docker scan ${{ env.DOCKER_TAG}}
-      -
+       # name: Test
+        #run: |
+         # docker scan ${{ env.DOCKER_TAG}}
+     # -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
