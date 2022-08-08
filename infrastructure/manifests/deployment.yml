@@ -1,30 +1,25 @@
----
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aws-example-octodex
-  annotations:
-    fluxcd.io/automated: "true"
+  labels:
+    app: golangsvc
+  name: golangsvc
 spec:
   replicas: 1
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: golangsvc
   template:
     metadata:
+      creationTimestamp: null
       labels:
-        app: aws-example-octodex
+        app: golangsvc
     spec:
       containers:
-      - name: aws-example-octodex
-         image: 297435679713.dkr.ecr.us-west-2.amazonaws.com/devops1:tag
-        image: REGISTRY/IMAGE:TAG
+      - image: 297435679713.dkr.ecr.us-west-2.amazonaws.com/devops1:latest
+        imagePullPolicy: IfNotPresent
+        name: golangsvc
         ports:
-        - containerPort: 5000
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
