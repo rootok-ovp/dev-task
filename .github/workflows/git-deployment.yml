@@ -28,10 +28,6 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       with:
         args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        ports:
-            - containerPort: 8080
-              protocol: TCP
-          imagePullPolicy: Always
         
     - name: verify deployment
       uses: kodermax/kubectl-aws-eks@master
