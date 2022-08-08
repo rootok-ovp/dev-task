@@ -1,11 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: aws-example-octodex
+  labels:
+    app: golangsvc
+  name: golangsvc
 spec:
-  type: LoadBalancer
   ports:
-    - port: 8080
-      targetPort: 5000
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
   selector:
-    app: aws-example-octodex
+    app: golangsvc
+  type: NodePort
