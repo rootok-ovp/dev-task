@@ -28,7 +28,11 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       with:
         args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        - uses: jtalk/k8s-deploy@v2
+
+    - name: verify deployment
+      uses: kodermax/kubectl-aws-eks@master
+      env:
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}        - uses: jtalk/k8s-deploy@v2
   with:
     namespace: 'myapp'
     manifests: |
@@ -39,10 +43,6 @@ jobs:
       image-pull-secret1
       image-pull-secret2
     kubectl-version: 'latest'
-
-    - name: verify deployment
-      uses: kodermax/kubectl-aws-eks@master
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        
       with:
         args: rollout status deployment/latest
