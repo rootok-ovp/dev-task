@@ -29,9 +29,9 @@ jobs:
       with:
         args: apply -f ./infrastructure/manifests
         
-    - name: verify deployment
-      uses: kodermax/kubectl-aws-eks@master
+    #- name: verify deployment
+     # uses: kodermax/kubectl-aws-eks@master
       #env:
         #KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA_STAGING }}
-      with:
-        args: rollout status deployment/my-app
+     # with:
+       # args: rollout status deployment/my-app
