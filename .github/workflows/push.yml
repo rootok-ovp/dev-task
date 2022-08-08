@@ -35,12 +35,3 @@ jobs:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
         args: rollout status deployment/my-app
-        - name: Switch to staging cluster
-  run: kubectl config use-context staging
-- uses: swdotcom/update-and-apply-kubernetes-configs@v1
-  with:
-    k8-config-file-paths: ./infrastructure/manifests/staging.yaml ./infrastructure/manifests/deployment.yaml
-    replacement-method: defined
-  env:
-    IMAGE_TAG: ${{ github.sha }}
-    CHANGE_CAUSE: ${{ github.event.release.tag_name }}
