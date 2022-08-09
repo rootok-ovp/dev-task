@@ -69,7 +69,7 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
   
   
-  deploy:
+  deploy-cluster:
     name: deploy to cluster
     runs-on: ubuntu-latest
     steps:
