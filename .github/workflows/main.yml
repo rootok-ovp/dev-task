@@ -1,4 +1,4 @@
-name: Creating terraform AWS AKS
+name: "Creating terraform AWS AKS"
 
 on:
   push:
@@ -56,7 +56,7 @@ on:
   pull_request:
     branches: [ main ]
     
-    name: Docker to AWS ACR
+    name: "Docker to AWS ACR"
     
 jobs:
   deploy:
@@ -96,8 +96,8 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         
-name: Deploy AWS AKS
-
+   name: "Deploy AWS AKS"
+   
 on: push
 jobs:
   deploy:
