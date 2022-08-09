@@ -50,13 +50,12 @@ jobs:
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
 
-name: Docker to AWS ACR
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+name: Docker to AWS ACR
 jobs:
   deploy:
     name: Deploy
@@ -95,7 +94,6 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 name: Deploy AWS AKS
-
 on: push
 jobs:
   deploy:
