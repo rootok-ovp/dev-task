@@ -10,7 +10,8 @@ import (
 func appHandler(w http.ResponseWriter, r *http.Request) {
 
   fmt.Println(time.Now(), "Hello from my new fresh server")
-
+  
+  w.Write([]byte(`{"status":"TEST"}`))
 }
 
 func main() {
