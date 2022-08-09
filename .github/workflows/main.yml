@@ -31,13 +31,15 @@ jobs:
     - name: Terraform Apply
       if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
-      on:
-       push:
-        branches: [ main ]
-        pull_request:
-         branches: [ main ]
-         name: AWS ECR push
-         jobs:
+name: 'Terraform'
+on:
+  push:
+    branches:
+    - "main"
+    pull_request:
+   branches: [ main ]
+   name: AWS ECR push
+  jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
