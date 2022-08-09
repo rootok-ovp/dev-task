@@ -1,7 +1,7 @@
 cloud {
-    organization = "sabotage-ivet"
+    organization = "devops_ovp"
     workspaces {
-      name = "devops_ovp"
+      name = "devops1"
     }
   }
 provider "kubernetes" {
