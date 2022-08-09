@@ -55,7 +55,9 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-name: Docker to AWS ACR
+    
+    name: Docker to AWS ACR
+    
 jobs:
   deploy:
     name: Deploy
@@ -93,7 +95,9 @@ jobs:
         echo "Pushing image to ECR..."
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        
 name: Deploy AWS AKS
+
 on: push
 jobs:
   deploy:
