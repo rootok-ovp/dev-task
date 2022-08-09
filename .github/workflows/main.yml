@@ -1,6 +1,5 @@
 name: Creating terraform AWS AKS
 
-name: 'Terraform'
 on:
   push:
     branches:
@@ -58,8 +57,6 @@ on:
   pull_request:
     branches: [ main ]
 
-name: AWS ECR push
-
 jobs:
   deploy:
     name: Deploy
@@ -100,7 +97,6 @@ jobs:
 name: Deploy AWS AKS
 
 on: push
-name: deploy
 jobs:
   deploy:
     name: deploy to cluster
