@@ -1,9 +1,16 @@
-
-cloud {
-    organization = "devops_ovp"
-    workspaces {
-      name = "devops1"
-    }
+terraform {
+        cloud {
+            organization = "devops_ovp"
+            workspaces {
+              name = "devops1"
+            }
+        }
+        required_providers {
+            aws = {
+              source = "hashicorp/aws"
+            }
+        }
+        required_version = ">= 1.2.0"
 }
 
 provider "kubernetes" {
@@ -13,8 +20,6 @@ provider "kubernetes" {
 
 provider "aws" {
   region     = "us-west-2"
-  access_key = var.AWS_ACCESS_KEY_ID
-  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
 
 data "aws_availability_zones" "available" {}
