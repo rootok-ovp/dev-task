@@ -11,6 +11,7 @@ module "eks"{
 
     vpc_id = module.vpc.vpc_id
     workers_group_defaults = {
+        root_volume_size = 8
         root_volume_type = "gp2"
     }
 
