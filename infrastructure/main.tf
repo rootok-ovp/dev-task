@@ -18,7 +18,7 @@ provider "aws" {
 
 data "aws_availability_zones" "azs" {
     state = "available"
-
+}
 
 resource "random_string" "suffix" {
   length  = 8
