@@ -5,7 +5,7 @@ variable "region" {
 data "aws_availability_zones" "available" {}
 
 locals {
-    cluster_name = "EKS-Cluster"
+    cluster_name = "Devops1-eks-${random_string.suffix.result}"
 }
 
 module vpc {
