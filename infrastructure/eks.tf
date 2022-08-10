@@ -14,7 +14,7 @@ module "eks"{
         root_volume_type = "gp2"
     }
 
-    workers_group = [
+    worker_groups = [
         {
             name = "Worker-Group-1"
             instance_type = "t2.micro"
