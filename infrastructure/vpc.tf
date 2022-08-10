@@ -1,11 +1,11 @@
 variable "region" {
-    default = "us-west-1"
+    default = "us-west-2"
 }
 
 data "aws_availability_zones" "available" {}
 
 locals {
-    cluster_name = "EKS-Cluster"
+    cluster_name = "Devops1-EKS-Cluster"
 }
 
 module vpc {
