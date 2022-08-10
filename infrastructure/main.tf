@@ -3,7 +3,7 @@ terraform {
         cloud {
             organization = "devops_ovp"
             workspaces {
-              name = "devops1"
+              name = "devops1-work"
             }
         }
 }
