@@ -16,7 +16,8 @@ provider "aws" {
   region     = "us-west-2"
 }
 
-data "aws_available_zones" "available" {}
+data "aws_availability_zones" "azs" {
+    state = "available"
 
 
 resource "random_string" "suffix" {
