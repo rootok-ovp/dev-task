@@ -16,7 +16,7 @@ provider "aws" {
   region     = "us-west-2"
 }
 
-data "aws_availability_zones" "available" {}
+data "aws_available_zones" "available" {}
 
 locals {
   cluster_name = "Devops1-eks-${random_string.suffix.result}"
