@@ -1,5 +1,5 @@
 variable "region" {
-    default = "us-east-1"
+    default = "us-west-1"
 }
 
 data "aws_availability_zones" "available" {}
