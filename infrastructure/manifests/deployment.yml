@@ -16,7 +16,7 @@ spec:
         app: golangsvc
     spec:
       containers:
-      - image: 130583056443.dkr.ecr.us-west-2.amazonaws.com/devops1:latest
+      - image: 176548991973.dkr.ecr.us-west-2.amazonaws.com/devops1:latest
         imagePullPolicy: IfNotPresent
         name: golangsvc
         ports:
