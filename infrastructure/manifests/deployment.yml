@@ -1,25 +1,21 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: golangsvc
-  name: golangsvc
+  name: go-web-app
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
-      app: golangsvc
+      name: go-web-app
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: golangsvc
+        name: go-web-app
     spec:
       containers:
-      - image: 176548991973.dkr.ecr.us-west-2.amazonaws.com/devops1:latest
+      - name: application
+        image: 176548991973.dkr.ecr.us-west-2.amazonaws.com/devops1:latest
         imagePullPolicy: IfNotPresent
-        name: golangsvc
         ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
+          - containerPort: 3000
