@@ -32,4 +32,4 @@ spec:
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 5
-          timeoutSeconds: 
+          timeoutSeconds: 1
