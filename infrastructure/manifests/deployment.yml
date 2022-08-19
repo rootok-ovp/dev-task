@@ -14,7 +14,7 @@ spec:
     spec:                        # Spec for the container which will run in the Pod
       containers:
       - name: go-hello-world
-        image: 176548991973.dkr.ecr.us-west-2.amazonaws.com/devops1:latest 
+        image: 172880764429.dkr.ecr.us-west-2.amazonaws.com/devops1
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8080  # Should match the port number that the Go application listens on
