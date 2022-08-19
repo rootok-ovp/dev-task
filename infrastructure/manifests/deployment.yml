@@ -15,7 +15,7 @@ spec:
       containers:
       - name: go-hello-world
         image: 172880764429.dkr.ecr.us-west-2.amazonaws.com/devops1
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
           - containerPort: 8080  # Should match the port number that the Go application listens on
         livenessProbe:           # To check the health of the Pod
