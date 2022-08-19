@@ -7,4 +7,4 @@ RUN ls /app
 RUN go build server.go
 CMD ["/app/server"]
 EXPOSE 8080
-ENTRYPOINT ["./hello"]
+ENTRYPOINT ["./server"]
