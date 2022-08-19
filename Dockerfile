@@ -1,7 +1,8 @@
 FROM golang:latest as build
 
-ADD application/server.go /app
 WORKDIR /app
+ADD application/server.go /app
+
 RUN export CGO_ENABLED=0 && go build -o server server.go
 
 FROM alpine 
